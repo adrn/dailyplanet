@@ -7,7 +7,6 @@ specified directory.
 import glob
 from os import path
 import os
-import pickle
 import sys
 import time
 
@@ -19,14 +18,13 @@ import h5py
 import numpy as np
 from schwimmbad import choose_pool
 from thejoker.log import log as joker_logger
-from thejoker import TheJoker, JokerParams, RVData, JokerSamples
+from thejoker import TheJoker, RVData
 import yaml
 
 # Project
 from twoface.log import log as logger
 from twoface.sample_prior import make_prior_cache
 from twoface.util import config_to_jokerparams
-from twoface.samples_analysis import unimodal_P, MAP_sample
 
 
 def main(data_path, config_file, data_file_ext, pool, seed, overwrite=False):
