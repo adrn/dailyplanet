@@ -1,0 +1,12 @@
+name: planetz
+hyperparams:
+  P_min: 1 day
+  P_max: 8192 day
+  jitter_prior_mean: 3.0 # made up! 
+  jitter_prior_stddev: 3.0
+  jitter_prior_unit: m/s
+prior:
+  num_cache: 536870912
+emcee:
+  n_walkers: 1024
+  n_steps: 16384
