@@ -33,7 +33,7 @@ def main(data_path, config_file, data_file_ext, pool, seed, overwrite=False):
         config = yaml.load(f.read())
         config['config_file'] = config_file
 
-    cache_path = path.join(data_path, 'cache')
+    cache_path = path.abspath('../cache')
     os.makedirs(cache_path, exist_ok=True)
 
     n_prior_samples = config['prior']['num_cache']
