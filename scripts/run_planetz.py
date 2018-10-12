@@ -67,8 +67,8 @@ def main(data_path, config_file, data_file_ext, pool, seed, overwrite=False):
         names = ['jd', 'rv', 'rv_err', 'a', 'b', 'c', 'd']
         data_tbl = Table.read(filename, names=names, format='ascii.basic')
         data = RVData(t=Time(data_tbl['jd'], format='jd'),
-                      rv=data_tbl['rv'] * u.m/u.s,
-                      stddev=data_tbl['rv_err'] * u.m/u.s)
+                      rv=(data_tbl['rv'] * u.m/u.s).to(u.km/u.s),
+                      stddev=(data_tbl['rv_err'] * u.m/u.s).to(u.km/u.s))
 
         if not path.exists(joker_results_filename) or overwrite:
             t0 = time.time()
